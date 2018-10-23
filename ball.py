@@ -1,3 +1,5 @@
+import cv2
+
 class ball:
 
     def __init__(self):
@@ -10,3 +12,5 @@ class ball:
     def move(self):
         pass
     def collide(self, newspeed)#newspeed expected to be a tuple
+
+    def draw(self, IMG): #draw ball on passed image
