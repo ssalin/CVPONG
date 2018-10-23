@@ -2,11 +2,12 @@ import cv2
 
 class ball:
 
-    def __init__(self):
-        self.xpos = 0
+    def __init__(self,x,y,rad):
+        self.xpos = x
         self.xspeed = 0
-        self.ypos = 0
+        self.ypos = y
         self.yspeed = 0
+        self.radius = rad
    
     def move(ball):
         while (x-crad) > 0:
@@ -15,7 +16,7 @@ class ball:
             ball.y = ball.ypos + ball.yspeed
     
     def drawball(self,IMG):
-        cv2.circle(IMG,(self.xpos,self.ypos),crad,(0,0,255),-1)
+        cv2.circle(IMG,(self.xpos,self.ypos),self.radius,(0,0,255),-1)
         #update image 
         #setwin()
         #cv2.imshow(winname,img)
