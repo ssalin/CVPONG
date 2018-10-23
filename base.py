@@ -52,16 +52,19 @@ def xleft():
         drawball()
         x = x - 1
 
+def main():
+    y = int(math.floor(FHEIGHT/2))#until i add vector movement
+    #tester blurb for ball movement functions
+    #black image. maybe add overlayed at some point. 2 ambitious 4 now.
+    bimg = np.zeros((HEIGHT,WIDTH,3), np.uint8)
+    setwin()
+    ret, img = cap.read()
+    cv2.imshow(winname,img) #need to see cam feed to debug hand finding 
+   # xright()
+   # xleft()
+   # xright()
+   # xleft()
+    cap.release()
+    cv2.destroyAllWindows()
 
-y = int(math.floor(FHEIGHT/2))#until i add vector movement
-#tester blurb for ball movement functions
-#img = np.zeros((HEIGHT,WIDTH,3), np.uint8)
-setwin()
-ret, img = cap.read()
-cv2.imshow(winname,img)
-xright()
-xleft()
-xright()
-xleft()
-cap.release()
-cv2.destroyAllWindows()
+main()
