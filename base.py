@@ -40,17 +40,11 @@ def drawball():
     cv2.imshow(winname,img)
     cv2.waitKey(2)
 
-def xright():
-    global x
-    while ((x+crad) < FWIDTH):
-        drawball()
-        x = x + 1 
-
-def xleft():
-    global x
+def move(ball):
     while (x-crad) > 0:
         drawball()
-        x = x - 1
+        ball.x = ball.xpos + ball.xspeed
+        ball.y = ball.ypos + ball.yspeed
 
 def main():
     y = int(math.floor(FHEIGHT/2))#until i add vector movement
