@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import screeninfo
 import math
-
+import ball as b
 winname = "neato"
 screen_id = 0
 screen = screeninfo.get_monitors()[screen_id]
@@ -28,18 +28,19 @@ def setwin(): #setup window. openCV seems reluctant to do fullscreen borderless.
                           cv2.WND_PROP_FULLSCREEN,
                           cv2.WND_PROP_FULLSCREEN)
 
+    
 def main():
+    ball = b(WIDTH,HEIGHT,crad)
     y = int(math.floor(FHEIGHT/2))#until i add vector movement
     #tester blurb for ball movement functions
     #black image. maybe add overlayed at some point. 2 ambitious 4 now.
     bimg = np.zeros((HEIGHT,WIDTH,3), np.uint8)
     setwin()
     ret, img = cap.read()
-    cv2.imshow(winname,img) #need to see cam feed to debug hand finding 
-   # xright()
-   # xleft()
-   # xright()
-   # xleft()
+    ball.draw(bimg)
+    cv2.imshow(winname,bimg) #need to see cam feed to debug hand finding 
+    cv2.waitkey(2)
+    #clean up
     cap.release()
     cv2.destroyAllWindows()
 

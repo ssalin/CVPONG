@@ -15,7 +15,7 @@ class ball:
             ball.x = ball.xpos + ball.xspeed
             ball.y = ball.ypos + ball.yspeed
     
-    def drawball(self,IMG):
+    def draw(self,IMG):
         cv2.circle(IMG,(self.xpos,self.ypos),self.radius,(0,0,255),-1)
         #update image 
         #setwin()
