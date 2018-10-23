@@ -9,16 +9,16 @@ screen = screeninfo.get_monitors()[screen_id]
 WIDTH = screen.width 
 HEIGHT = screen.height
 
-crad = 100 #radius of ball
+crad = 50 #radius of ball
 #put ball in middle of screen
 x = WIDTH/2 
 y = HEIGHT/2
 #open the camera
-cap = cv2.VideoCapture(0)
-if (cap.isOpened == False):
-    print("ERROR OPENING CAMERA") #add more advanced error-behavior later
-FWIDTH = int(cap.get(3)) 
-FHEIGHT = int(cap.get(4))
+#cap = cv2.VideoCapture(0)
+#if (cap.isOpened == False):
+#    print("ERROR OPENING CAMERA") #add more advanced error-behavior later
+#FWIDTH = int(cap.get(3)) 
+#FHEIGHT = int(cap.get(4))
 
 
 def setwin(): #setup window. openCV seems reluctant to do fullscreen borderless.
@@ -30,18 +30,20 @@ def setwin(): #setup window. openCV seems reluctant to do fullscreen borderless.
 
     
 def main():
-    ball = b(WIDTH,HEIGHT,crad)
-    y = int(math.floor(FHEIGHT/2))#until i add vector movement
+    ball = b.ball(screen.x,screen.y,crad)
+    # y = int(math.floor(FHEIGHT/2))#until i add vector movement
     #tester blurb for ball movement functions
     #black image. maybe add overlayed at some point. 2 ambitious 4 now.
     bimg = np.zeros((HEIGHT,WIDTH,3), np.uint8)
     setwin()
-    ret, img = cap.read()
-    ball.draw(bimg)
-    cv2.imshow(winname,bimg) #need to see cam feed to debug hand finding 
-    cv2.waitkey(2)
+    #ret, img = cap.read()
+    while ((ball.xpos + crad) < WIDTH):
+        ball.draw(bimg)
+        ball.move()
+        cv2.imshow(winname,bimg) #need to see cam feed to debug hand finding 
+    cv2.waitKey(2)
     #clean up
-    cap.release()
+    #cap.release()
     cv2.destroyAllWindows()
 
 main()
