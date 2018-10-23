@@ -14,17 +14,11 @@ class ball:
             ball.x = ball.xpos + ball.xspeed
             ball.y = ball.ypos + ball.yspeed
     
-    def drawball():
-        global x
-        #read from camera
-        ret, img = cap.read()
-        #draw black image
-        #img = np.zeros((HEIGHT,WIDTH,3), np.uint8)
-        #draw circle
-        cv2.circle(img,(x,(y)),crad,(0,0,255),-1)
+    def drawball(self,IMG):
+        cv2.circle(IMG,(self.xpos,self.ypos),crad,(0,0,255),-1)
         #update image 
-        setwin()
-        cv2.imshow(winname,img)
-        cv2.waitKey(2)
+        #setwin()
+        #cv2.imshow(winname,img)
+        #cv2.waitKey(2)
 
 
