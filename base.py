@@ -27,24 +27,6 @@ def setwin(): #setup window. openCV seems reluctant to do fullscreen borderless.
     cv2.setWindowProperty(winname,
                           cv2.WND_PROP_FULLSCREEN,
                           cv2.WND_PROP_FULLSCREEN)
-def drawball():
-    global x
-    #read from camera
-    ret, img = cap.read()
-    #draw black image
-    #img = np.zeros((HEIGHT,WIDTH,3), np.uint8)
-    #draw circle
-    cv2.circle(img,(x,(y)),crad,(0,0,255),-1)
-    #update image 
-    setwin()
-    cv2.imshow(winname,img)
-    cv2.waitKey(2)
-
-def move(ball):
-    while (x-crad) > 0:
-        drawball()
-        ball.x = ball.xpos + ball.xspeed
-        ball.y = ball.ypos + ball.yspeed
 
 def main():
     y = int(math.floor(FHEIGHT/2))#until i add vector movement
