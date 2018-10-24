@@ -6,10 +6,10 @@ import ball as b
 winname = "neato"
 screen_id = 0
 screen = screeninfo.get_monitors()[screen_id]
-WIDTH = 1920#screen.width 
+WIDTH = 1920 #screen.width 
 HEIGHT = 1080#screen.height
 
-crad = 50 #radius of ball
+crad = 25 #radius of ball
 #put ball in middle of screen
 x = WIDTH/2 
 y = HEIGHT/2

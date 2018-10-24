@@ -8,7 +8,7 @@ class ball:
         self.xmax = xmax
         
         self.ypos = y
-        self.yspeed = 1
+        self.yspeed = -1
         self.ymax = ymax
         
         self.radius = rad
@@ -16,7 +16,10 @@ class ball:
     def move(self):
        # while (x-crad) > 0) || ((self.x+self.radius) < 1080):
         self.xpos = self.xpos + self.xspeed
+        
         if (self.ypos + self.radius > self.ymax):
+            self.yspeed = self.yspeed * (-1)
+        if(self.ypos - self.radius < 0):
             self.yspeed = self.yspeed * (-1)
         self.ypos = self.ypos + self.yspeed
             
