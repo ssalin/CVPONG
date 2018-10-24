@@ -2,11 +2,15 @@ import cv2
 
 class ball:
 
-    def __init__(self,x,y,rad):
+    def __init__(self,x,y,rad,xmax,ymax):
         self.xpos = x
         self.xspeed = 1
+        self.xmax = xmax
+        
         self.ypos = y
-        self.yspeed = 0
+        self.yspeed = 1
+        self.ymax = ymax
+        
         self.radius = rad
    
     def move(self):
@@ -19,10 +23,4 @@ class ball:
                   (int (self.xpos),
                    int (self.ypos)),
                    int (self.radius),
-                   (0,0,255),-1)
-        #update image 
-        #setwin()
-        #cv2.imshow(winname,img)
-        #cv2.waitKey(2)
-
-
+                   (0,0,255),-1)#could make ball chg color
