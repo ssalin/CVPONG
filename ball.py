@@ -16,7 +16,10 @@ class ball:
     def move(self):
        # while (x-crad) > 0) || ((self.x+self.radius) < 1080):
         self.xpos = self.xpos + self.xspeed
+        if (self.ypos + self.radius > self.ymax):
+            self.yspeed = self.yspeed * (-1)
         self.ypos = self.ypos + self.yspeed
+            
     
     def draw(self,IMG):
         cv2.circle(IMG,

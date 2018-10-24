@@ -30,7 +30,7 @@ def setwin(): #setup window. openCV seems reluctant to do fullscreen borderless.
 
     
 def main():
-    ball = b.ball(x,y,crad)
+    ball = b.ball(x,y,crad,WIDTH,HEIGHT)
     # y = int(math.floor(FHEIGHT/2))#until i add vector movement
     #tester blurb for ball movement functions
     #black image. maybe add overlayed at some point. 2 ambitious 4 now.
